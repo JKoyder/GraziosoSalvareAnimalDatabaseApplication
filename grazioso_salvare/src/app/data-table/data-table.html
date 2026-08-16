@@ -1,0 +1,114 @@
+<div class="data-filters">
+    <button type="button" (click)="getAnimalsByFilter('', '', 'Dog', ['Labrador Retriever Mix','Chesapeake Bay Retriever','Newfoundland Mix'],'' ,'' ,'' ,'' ,'', '' ,'' ,'Intact Male')">Water Rescue</button>
+    <button type="button" (click)="getAnimalsByFilter('', '', 'Dog', ['German Shepherd','Alaskan Malamute','Old English Sheepdog','Siberian Husky','Rottweiler'],'' ,'' ,'' ,'' ,'', '' ,'' ,'Intact Male')">Mountain Rescue</button>
+    <button type="button" (click)="getAnimalsByFilter('', '', 'Dog', ['Doberman Pinscher','German Shepherd','Golden Retriever','Bloodhound', 'Rottweiler'],'' ,'' ,'' ,'' ,'', '' ,'' ,'Intact Male')">Disaster Rescue</button>
+    <button type="button" (click)="getAnimalsByFilter('', '', 'Dog', '' ,'' ,'' ,'' ,'' ,'', '' ,'' ,'')">Dogs</button>
+    <button type="button" (click)="getAnimalsByFilter('', '', 'Cat', '' ,'' ,'' ,'' ,'' ,'', '' ,'' ,'')">Cats</button>
+    <button type="button" (click)="getAnimals()">Reset</button>
+</div>
+
+<div class="data-table">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="age_upon_outcome">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by age">
+                Age
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.age_upon_outcome}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="animal_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">
+                ID
+            </th>
+            <td mat-cell *matCellDef="let animal">{{animal.animal_id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="animal_type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by type">
+                Type
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.animal_type}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="breed">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by breed">
+                Breed
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.breed}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by color">
+                Color
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.color}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date_of_birth">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date of birth">
+                Date of Birth
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.date_of_birth}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="datetime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by datetime">
+                Date Time
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.datetime}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="monthyear">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by monthyear">
+                Month Year
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.monthyear}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                Name
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="outcome_subtype">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by outcome subtype">
+                Outcome Subtype
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.outcome_subtype}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="outcome_type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by outcome type">
+                Outcome Type
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.outcome_type}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="sex_upon_outcome">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by sex">
+                Sex
+            </th>
+            <td mat-cell *matCellDef="let animal" >{{animal.sex_upon_outcome}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <tr mat-row
+            (click)="clickedRow = row"
+            [class.row-is-clicked]="clickedRow === row"
+            *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+
+    </table>
+</div>
+
+<div class="mat-paginator">
+    <mat-paginator
+        #paginator
+        [pageSize]="15"
+        [showFirstLastButtons]="true">
+    </mat-paginator>
+</div>

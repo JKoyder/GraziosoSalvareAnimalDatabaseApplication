@@ -1,0 +1,41 @@
+.mat-sort-header-container {
+    justify-content: center;
+    font-weight: bold;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  color: rgba(238, 99, 57, 0.815);
+  cursor: pointer;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+    max-width: 200px;
+    text-align: left;
+}
+
+.mat-column-breed {
+  max-width: 200px;
+}
+
+.row-is-clicked {
+  font-weight: bold;
+}
+
+.data-filters {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.data-table {
+  width: 95%;
+  margin: 0 auto;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.mat-paginator {
+  width: 95%;
+  margin: 0 auto;
+}
